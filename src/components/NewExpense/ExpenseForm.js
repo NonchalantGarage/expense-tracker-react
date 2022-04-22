@@ -15,9 +15,15 @@ const ExpenseForm = () => {
 
   const titleChangeHandler = (event)=>{
     // setEnteredTitle(event.target.value)
-    setEnteredInput({
-      ...enteredInput,
-      enteredTitle: event.target.value
+    // setEnteredInput({
+    //   ...enteredInput,
+    //   enteredTitle: event.target.value
+    // })
+
+    // React schedules state updates, which is why you should explicitly use close to reutrn previous state spread operator
+    // safer to work on the latest state 
+    setEnteredInput((prevState)=>{
+      return {...prevState, enteredTitle: event.target.value}
     })
   };
 
@@ -38,10 +44,12 @@ const ExpenseForm = () => {
   };
   
 
-  
+  const submitHanlder = (event) =>{
+    event.preventDefault();
+  };
 
   return (
-    <form>
+    <form on onSubmit={submitHanlder}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
