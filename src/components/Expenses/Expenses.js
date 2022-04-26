@@ -8,12 +8,14 @@ function Expenses (props){
   const [pickedYear, newPickedYear] = useState(new Date().getFullYear())
     
   const pickedYearHandler = (selectedYear) =>{
-    newPickedYear(selectedYear)
+    newPickedYear(selectedYear);
+    console.log(selectedYear)
+
   }
 
     return(
       <div>
-        <ExpenseFilter onPickYear ={pickedYearHandler}/>
+        <ExpenseFilter pickedYear = {pickedYear} onPickYear ={pickedYearHandler}/>
         <Card className='expenses'>
         <ExpenseItem
         title={props.items[0].title}
