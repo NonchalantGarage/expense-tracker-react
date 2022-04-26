@@ -5,11 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 const NewExpense = ({onAddExpense}) => {
   const saveExpenseDateHandler = (enteredExpenseData) => {
-    const expenseDate = {
+    const expenseData = {
       ...enteredExpenseData,
       id: uuidv4()
     };
-    onAddExpense(expenseDate)
+    onAddExpense(expenseData)
   };
 
   return (
