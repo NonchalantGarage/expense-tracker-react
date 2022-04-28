@@ -9,6 +9,7 @@ const NewExpense = ({onAddExpense}) => {
       ...enteredExpenseData,
       id: uuidv4()
     };
+    console.log(expenseData)
     onAddExpense(expenseData)
   };
 
