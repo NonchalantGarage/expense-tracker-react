@@ -5,7 +5,9 @@ import "./Expenses.css";
 import ExpenseFilter from "./ExpenseFilter";
 
 function Expenses(props) {
-  const [pickedYear, newPickedYear] = useState(new Date().getFullYear().toString());
+  const [pickedYear, newPickedYear] = useState(
+    new Date().getFullYear().toString()
+  );
 
   const pickedYearHandler = (selectedYear) => {
     newPickedYear(selectedYear);
@@ -19,14 +21,18 @@ function Expenses(props) {
   return (
     <Card className="expenses">
       <ExpenseFilter pickedYear={pickedYear} onPickYear={pickedYearHandler} />
-      {filteredYearArray.map((expense) => (
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          key={expense.id}
-        />
-      ))}
+      {filteredYearArray.length === 0 ? (
+        <p>No expenses found.</p>
+      ) : (
+        filteredYearArray.map((expense) => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+            key={expense.id}
+          />
+        ))
+      )}
     </Card>
   );
 }
