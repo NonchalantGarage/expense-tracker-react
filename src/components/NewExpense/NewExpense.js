@@ -36,7 +36,7 @@ const NewExpense = ({ onAddExpense }) => {
       />
     )}
   </div>
-  )
+  ) 
 };
 
 export default NewExpense;
